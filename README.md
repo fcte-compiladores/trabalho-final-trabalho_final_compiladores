@@ -65,7 +65,7 @@ python3 -m arnoldc run exemplos/decl_and_call_method.arnoldc
 ```
 
 ## Exemplos
-A pasta [*exemplos*](exemplos), como já abordado, possui alguns exemplos simples de códigos ArnoldC para testes. Ao todo são cinco, porém aqui trago apenas dois:
+A pasta [*exemplos*](exemplos), como já abordado, possui alguns exemplos simples de códigos ArnoldC para testes. Ao todo são sete, porém aqui trago apenas dois:
 
 * helloworld.arnoldc
 ```

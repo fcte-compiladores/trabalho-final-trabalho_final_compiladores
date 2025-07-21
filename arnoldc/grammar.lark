@@ -1,0 +1,122 @@
+?start : program
+
+program : START_SHOWTIME statement_block TERMINATE_SHOWTIME
+
+// DECLARAÇÕES
+
+?declaration : var_def
+             | method_decl
+             | assignment_stmt 
+             | call_stmt      
+             | print_cmd   
+
+
+var_def : HEY_CHRISTMAS_TREE VAR YOU_SET_US_UP expr
+
+
+operation_list : (operation_expr)*
+
+assignment_stmt : GET_TO_THE_CHOPPER VAR HERE_IS_MY_INVITATION expr operation_list ENOUGH_TALK
+
+
+operation_expr : GET_UP expr                   -> add_op
+               | GET_DOWN expr                 -> sub_op
+               | YOU_RE_FIRED expr             -> mul_op
+               | HE_HAD_TO_SPLIT expr          -> div_op
+               | YOU_ARE_NOT_YOU expr          -> eq_op
+               | LET_OFF_SOME_STEAM_BENNET expr -> gt_op
+               | CONSIDER_THAT_A_DIVORCE expr  -> or_op
+               | KNOCK_KNOCK expr              -> and_op
+
+
+method_decl : LISTEN_TO_ME_VERY_CAREFULLY VAR method_parameters* GIVE_THESE_PEOPLE_AIR? statement_block HASTA_LA_VISTA_BABY 
+
+method_parameters : I_NEED_YOUR_CLOTHES VAR
+
+call_stmt : GET_YOUR_ASS_TO_MARS VAR DO_IT_NOW VAR params?
+
+params : expr+
+
+// COMANDOS
+
+?stmt : if_cmd
+      | while_cmd
+      | return_stmt
+
+
+if_cmd : BECAUSE_I_M_GOING_TO_SAY_PLEASE expr statement_block (BULLSHIT statement_block)? YOU_HAVE_NO_RESPECT_FOR_LOGIC
+
+while_cmd : STICK_AROUND expr statement_block CHILL
+
+print_cmd : TALK_TO_THE_HAND (STRING | VAR)
+
+return_stmt : I_LL_BE_BACK expr
+
+
+statement_block : (declaration | stmt)*
+
+// EXPRESSÕES
+
+?expr : primary
+
+?primary : NUMBER
+         | BOOL
+         | VAR
+         | STRING
+         | "(" expr ")"
+
+
+// TERMINAIS 
+
+// Palavras-chave do programa
+START_SHOWTIME.2          : "IT'S SHOWTIME"
+TERMINATE_SHOWTIME.2      : "YOU HAVE BEEN TERMINATED"
+
+// Declaração de variável
+HEY_CHRISTMAS_TREE.2      : "HEY CHRISTMAS TREE"
+YOU_SET_US_UP.2           : "YOU SET US UP"
+
+// Atribuição
+GET_TO_THE_CHOPPER.2      : "GET TO THE CHOPPER"
+HERE_IS_MY_INVITATION.2   : "HERE IS MY INVITATION"
+ENOUGH_TALK.2             : "ENOUGH TALK"
+
+// Operações
+GET_UP.2                    : "GET UP"
+GET_DOWN.2                  : "GET DOWN"
+YOU_RE_FIRED.2              : "YOU'RE FIRED"
+HE_HAD_TO_SPLIT.2           : "HE HAD TO SPLIT"
+YOU_ARE_NOT_YOU.2           : "YOU ARE NOT YOU YOU ARE ME"
+LET_OFF_SOME_STEAM_BENNET.2 : "LET OFF SOME STEAM BENNET"
+CONSIDER_THAT_A_DIVORCE.2   : "CONSIDER THAT A DIVORCE"
+KNOCK_KNOCK.2               : "KNOCK KNOCK"
+
+// Comandos de controle
+BECAUSE_I_M_GOING_TO_SAY_PLEASE.2 : "BECAUSE I'M GOING TO SAY PLEASE"
+BULLSHIT.2                        : "BULLSHIT"
+YOU_HAVE_NO_RESPECT_FOR_LOGIC.2   : "YOU HAVE NO RESPECT FOR LOGIC"
+STICK_AROUND.2                    : "STICK AROUND"
+CHILL.2                           : "CHILL"
+
+// Print
+TALK_TO_THE_HAND.2    : "TALK TO THE HAND"
+
+// Definição e Chamada de Métodos
+LISTEN_TO_ME_VERY_CAREFULLY.2 : "LISTEN TO ME VERY CAREFULLY"
+I_NEED_YOUR_CLOTHES.2         : "I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE"
+GIVE_THESE_PEOPLE_AIR.2       : "GIVE THESE PEOPLE AIR"
+HASTA_LA_VISTA_BABY.2         : "HASTA LA VISTA, BABY"
+I_LL_BE_BACK.2                : "I'LL BE BACK"
+GET_YOUR_ASS_TO_MARS.2        : "GET YOUR ASS TO MARS"
+DO_IT_NOW.2                   : "DO IT NOW"
+
+// Literais
+BOOL.2             : AT_I_LIED | AT_NO_PROBLEMO // 0 e 1 (false e true)
+AT_I_LIED.2        : "@I LIED"
+AT_NO_PROBLEMO.2   : "@NO PROBLEMO"
+VAR.1              : /[a-zA-Z_]\w*/
+NUMBER             : /([1-9][0-9]*|0)/ // APENAS INTEIROS!
+STRING             : /"[^"]*"/
+COMMENT            : "//" /[^\n]*/
+
+%ignore /\s/ | COMMENT

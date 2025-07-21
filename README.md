@@ -6,9 +6,9 @@
 
 **Integrantes:**
 
-| Nome                    | Matrícula   |
-|-------------------------|-------------|
-| Larissa de Jesus Vieira | 221022050   |
+| Nome                    | Matrícula   | Turma    |
+|-------------------------|-------------|----------|
+| Larissa de Jesus Vieira | 221022050   | 03 (18h) |
 
 ## Introdução
 Este projeto consiste na implementação de um interpretador para um subconjunto da linguagem de programação [**ArnoldC**](https://banhawy.github.io/ArnoldC-Technical-Documentation/#main-method). 

@@ -1,79 +1,140 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Hppw7Zh2)
-# Trabalho Final
 
-## Escopo e organização
+# Compilador de ArnoldC 😎
 
-O trabalho é de tema livre dentro do escopo da disciplina de compiladores e
-consiste no desenvolvimento de alguma aplicação na área da disciplina (um
-interpretador para uma linguagem simples, compilador, analisadores de código,
-etc.)
+**Título:** Compilador de ArnoldC
 
-O trabalho pode ser feito em grupos de até 4 pessoas.
+**Integrantes:**
 
-## Estrutura
+| Nome                    | Matrícula   |
+|-------------------------|-------------|
+| Larissa de Jesus Vieira | 221022050   |
 
-Os trabalhos devem ser entregues na atividade própria no [github-classrrom](...).
-Cada repositório deve ter uma estrutura parecida com a delineada abaixo:
+## Introdução
+Este projeto consiste na implementação de um interpretador para um subconjunto da linguagem de programação [**ArnoldC**](https://banhawy.github.io/ArnoldC-Technical-Documentation/#main-method). 
 
-* **README:** o arquivo README.md na base do repositório deve descrever os
-  detalhes da implementação do código. O README deve ter algumas seções 
-  obrigatórias:
-  - **Título**: nome do projeto
-  - **Integrantes**: lista com os nomes, matrículas e turma de cada integrante.
-  - **Introdução**: deve detalhar o que o projeto implementou, quais foram as
-    estratégias e algoritmos relevantes. Se o projeto implementa uma linguagem
-    não-comum ou um subconjunto de uma linguagem comum, deve conter alguns
-    exemplos de comandos nesta linguagem, descrendo a sua sintaxe e semântica,
-    quando necessário.
-  - **Instalação**: deve detalhar os passos para instalar as dependências e
-    rodar o código do projeto. Pode ser algo simples como *"Rode
-    `uv run lox hello.lox` para executar o interpretador."*, se a linguagem de
-    implementação permitir este tipo de facilidade.
+ArnoldC é uma linguagem de programação esotérica onde todo o código é composto por citações famosas de filmes do ator Arnold Schwarzenegger.
 
-    Você pode usar gerenciadores de pacotes específicos de linguagens populares
-    como uv, npm, cargo, etc, containers Docker/Podman, ou `.nix`.
-  - **Exemplos**: o projeto deve conter uma pasta "exemplos" com alguns arquivos
-    na linguagem de programação implementada. Deve conter exemplos com graus
-    variáveis de complexidade. Algo como: hello world, fibonacci, função
-    recursiva, alguma estrutura de dados e para finalizar um algoritmo um pouco
-    mais elaborado como ordenamento de listas, busca binária, etc.
-    
-    Note que isto é apenas um guia da ordem de dificuldade dos problemas.
-    Algumas linguagens sequer permitem a implementação de alguns dos exemplos
-    acima.
-  - **Referências**: descreva as referências que você utilizou para a
-    implementação da linguagem. Faça uma breve descrição do papel de cada
-    referência ou como ela foi usada no projeto. Caso você tenha usado algum 
-    código existente como referência, descreva as suas contribuições originais
-    para o projeto.
-  - **Estrutura do código**: faça uma descrição da estrutura geral do código
-    discutindo os módulos, classes, estruturas de dados ou funções principais. 
-    Explicite onde as etapas tradicionais de compilação (análise léxica, 
-    sintática, semântica, etc) são realizadas, quando relevante.
-  - **Bugs/Limitações/problemas conhecidos**: discuta as limitações do seu
-    projeto e problemas conhecidos e coisas que poderiam ser feitas para
-    melhorá-lo no futuro. Note: considere apenas melhorias incrementais e não
-    melhorias grandes como: "reimplementar tudo em Rust".
-* **Código:** O codigo fonte deve estar presente no repositório principal junto com
-  a declaração das suas dependências. Cada linguagem possui um mecanismo
-  específico para isso, mas seria algo como o arquivo pyproject.toml em Python
-  ou package.json no caso de Javascript.
+O objetivo principal foi adaptar as estruturas que vimos na disciplina Compiladores 1, ministrada pelo Prof. Fábio Mendes, construindo um compilador em Python para executar programas simples em ArnoldC.
 
-## Critérios
+Os elementos abordados no trabalho são:
+* **Estrutura Básica do Programa:** Todo programa começa com `IT'S SHOWTIME` e termina com `YOU HAVE BEEN TERMINATED`.
+* **Definição de Variáveis:** Variáveis são declaradas usando `HEY CHRISTMAS TREE <nome_variavel> YOU SET US UP <valor_inicial>`.
+* **Atribuição de Variáveis:** Variáveis recebem valores com `GET TO THE CHOPPER <nome_variavel> HERE IS MY INVITATION <expressão> ENOUGH TALK`.
+* **Impressão:** Os comandos de print são realizados com `TALK TO THE HAND <expressão>`.
+* **Operações Aritméticas e Lógicas:**
+    * Adição: `GET UP <operando>`
+    * Subtração: `GET DOWN <operando>`
+    * Multiplicação: `YOU'RE FIRED <operando>`
+    * Divisão: `HE HAD TO SPLIT <operando>`
+    * Ou: `OR NO RAIN <operando>`
+    * E: `KNOCK KNOCK <operando>`
+* **Definição de Métodos:** Métodos são definidos com `LISTEN TO ME VERY CAREFULLY <nome_metodo> [parâmetros...] [GIVE THESE PEOPLE AIR] <bloco_de_código> HASTA LA VISTA, BABY`. `GIVE THESE PEOPLE AIR` indica que o método tem um retorno.
+* **Parâmetros de Métodos:** São declarados com `I NEED YOUR CLOTHES YOUR BOOTS AND YOUR MOTORCYCLE <nome_parametro>`.
+* **Chamada de Métodos:** `GET YOUR ASS TO MARS <variavel_resultado> DO IT NOW <nome_metodo> [argumentos...]`.
+* **Retorno de Método:** `I'LL BE BACK <expressão>`.
+* **If:** `BECAUSE I'M GOING TO SAY PLEASE <condição> [bloco_if] [BULLSHIT [bloco_else]] YOU HAVE NO RESPECT FOR LOGIC`
+* **While:** `STICK AROUND <condição> [bloco_loop] CHILL`
 
-Cada trabalho começa com 100% e pode receber penalizações ou bônus de acordo com
-os critérios abaixo:
+## Instalação e Execução
+**1) Pré-requisitos:**
+* Python 3.10 ou superior
+* pip (gerenciador de pacotes Python)
 
-- Ausência do README: -50%
-- Instruções de instalação não funcionam: até -20%
-- Referências não atribuídas ou falta de referâncias: -10%
-- Código confuso ou mal organizado: até -15%
-- Falta de clareza em apresentar as técnicas e etapas de compilação: -15%
-- Bugs e limitações sérias na implementação: até -25%
-- Escopo reduzido, ou implementação insuficiente: até 25%
-- Uso de código não atribuído/plágio: até -100%
-- Repositório bem estruturado e organizado: até 10%
-- Linguagem com conceitos originais/interessantes: até +15%
-- Testes unitários: até +15%, dependendo da cobertura
+**2) Clonar o Repositório:**
+```bash
+git clone https://github.com/fcte-compiladores/trabalho-final-trabalho_final_compiladores.git
+cd trabalho-final-trabalho_final_compiladores
+```
+**3) Criar e Ativar Ambiente Virtual:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate # No Linux/macOS
+.venv\Scripts\activate # No Windows
+```
+**4) Instalar Dependências:**
+```bash
+pip install -r requirements.txt
+```
+**5) Executar o Compilador:**
 
-Após aplicar todos os bônus, a nota é truncada no intervalo 0-100%. 
+Para executar um arquivo ArnoldC, use o comando *run*. 
+No projeto já existem alguns exemplos de código ArnoldC na pasta *exemplos*, que podem ser executados como o comando abaixo.
+```bash
+python3 -m arnoldc run exemplos/decl_and_call_method.arnoldc
+```
+
+## Exemplos
+A pasta [*exemplos*](exemplos), como já abordado, possui alguns exemplos simples de códigos ArnoldC para testes. Ao todo são cinco, porém aqui trago apenas dois:
+
+* helloworld.arnoldc
+```
+IT'S SHOWTIME
+TALK TO THE HAND "Hello, World!"
+YOU HAVE BEEN TERMINATED
+```
+
+* while.arnoldc
+```
+IT'S SHOWTIME
+HEY CHRISTMAS TREE cnt YOU SET US UP 3
+
+STICK AROUND cnt
+    TALK TO THE HAND "Estou dentro do loop! Contador: "
+    TALK TO THE HAND cnt
+    GET TO THE CHOPPER cnt
+    HERE IS MY INVITATION cnt
+    GET DOWN 1
+    ENOUGH TALK
+CHILL
+
+TALK TO THE HAND "Final do loop."
+YOU HAVE BEEN TERMINATED
+```
+
+## Referências
+⚠️ Esse trabalho é uma adaptação do projeto Lox do Prof. Fábio Mendes, que foi visto em sala de aula durante o semestre de 2025/2. Muitas estruturas e/ou arquivos foram reutilizados.
+
+* Repositório do Professor Fábio (https://github.com/fcte-compiladores/2025-1)
+* Crafting Interpreters, Robert Nystrom, 2015-2021. (https://craftinginterpreters.com/)
+* BANHAWY, Mohamed. ArnoldC Technical Documentation. Disponível em: <https://banhawy.github.io/ArnoldC-Technical-Documentation/#main-method>. Acesso em: 20 jul. 2025.
+* ESOLANGS. ArnoldC. Disponível em: <https://esolangs.org/wiki/ArnoldC>. Acesso em: 20 jul. 2025.
+* HARTIKKA, Lauri. ArnoldC. GitHub. Disponível em: <https://github.com/lhartikk/ArnoldC>. Acesso em: 20 jul. 2025.
+
+Para o entendimento da linguagem ArnoldC, utilizei o site [ArnoldC Documentation](https://banhawy.github.io/ArnoldC-Technical-Documentation/#main-method) e o [repositório oficial do ArnoldC](https://github.com/lhartikk/ArnoldC)
+
+## Estrutura do código
+O projeto está organizado na seguinte estrutura de diretórios e arquivos:
+```
+.
+├── arnoldc/
+│   ├── __init__.py          
+│   ├── __main__.py          
+│   ├── arnoldc_ast.py       # Definições dos nós da Abstract Syntax Tree (AST).
+│   ├── cli.py               # Interface de linha de comando (CLI) usando argparse.
+│   ├── ctx.py               # Gerenciamento do contexto de execução e escopos de variáveis.
+│   ├── errors.py            # Definições de exceções customizadas para erros de ArnoldC.
+│   ├── grammar.lark         # Definição da gramática de ArnoldC para o Lark. Responsável pela análise léxica e sintática (produz a CST).
+│   ├── parser.py            # Integra a gramática Lark e fornece funções para tokenização (lex), parsing para CST (parse_cst) e AST (parse).
+│   ├── runtime.py           # Contém a lógica principal para a avaliação da AST.
+│   ├── transformer.py       # Classe Transformer do Lark que converte a CST na AST definida em `arnoldc_ast.py`.
+│   └── node.py              # Definição de uma classe base para nós da AST ou para o sistema de validação.
+├── exemplos/                # Pasta contendo alguns programas de exemplo em ArnoldC.
+│   ├── helloworld.arnoldc
+│   ├── decl_and_call_method.arnoldc
+│   └── ... (outros exemplos)
+├── .gitgnore               
+├── requirements.txt         # Gerenciamento de dependências do projeto (no lugar do pyproject.toml).
+└── README.md                 
+```
+
+## Bugs/Limitações/problemas conhecidos
+* **Testes:** Infelizmente, não foram implementados testes unitários para verificar a correção de módulos individuais. Embora existam arquivos de exemplo na pasta `exemplos/`, ainda são **necessários mais casos de teste** abrangentes para garantir o funcionamento pleno e robusto do interpretador/compilador.
+* **Tipagem:** ArnoldC é dinamicamente tipado. O compilador atual não realiza verificação de tipos em tempo de compilação, erros desse tipo (ex: somar um número com uma string) são capturados apenas em tempo de execução.
+* **Funcionalidades Não Implementadas:** O projeto cobre um subconjunto da linguagem ArnoldC. Funcionalidades mais avançadas (se existirem na especificação completa e não foram implementadas) não estão presentes.
+
+**Melhorias Futuras Potenciais:**
+
+* Implementar todas as operações e construções da especificação completa do ArnoldC.
+* Melhorar a detecção e o relato de erros semânticos antes da execução.
+* Desenvolver um conjunto de testes mais robusto para todas as funcionalidades.
